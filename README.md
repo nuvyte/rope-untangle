@@ -1,7 +1,7 @@
 # site/
 
 This folder is published as a GitHub Pages site at:
-`https://YOUR-GITHUB-USERNAME.github.io/rope-untangle/`
+`https://nuvyte.github.io/rope-untangle/`
 
 It hosts the privacy policy and the version check file the app downloads on launch.
 
@@ -12,8 +12,8 @@ It hosts the privacy policy and the version check file the app downloads on laun
 3. Under **Source**, choose **Deploy from a branch**.
 4. Set the branch to `main` (or `master`) and the folder to `/site`.
 5. Click **Save**. GitHub will publish the site in a minute or two.
-6. Visit `https://YOUR-GITHUB-USERNAME.github.io/rope-untangle/` to confirm it's live.
-7. Replace `YOUR-GITHUB-USERNAME` with your actual username in:
+6. Visit `https://nuvyte.github.io/rope-untangle/` to confirm it's live.
+7. Replace `nuvyte` with your actual username in:
    - `www/index.html` — the `VERSION_CHECK_URL` constant near the top of the game section.
    - `site/README.md` (this file) — optional, for your own reference.
 
