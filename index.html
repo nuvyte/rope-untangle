@@ -1,9 +1,96 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rope Untangle</title>
-<style>body{font-family:system-ui,sans-serif;max-width:680px;margin:40px auto;padding:0 20px;line-height:1.6;color:#2a2a2a}h1{font-size:1.6rem;color:#B8742F}</style>
-</head><body>
-<h1>Rope Untangle</h1>
-<p>A calm logic puzzle for Android. Ropes are tied to pegs on the board edge — tap a rope to reel it back, but only if no other rope lies on top of it. Work your way through hundreds of boards, from gentle warm-ups to tricky knots.</p>
-<p><a href="https://play.google.com/store/apps/details?id=com.nuvyte.ropeuntangle">Get it on Google Play</a> &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy policy</a></p>
-</body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rope Untangle: Logic Puzzle</title>
+<meta name="description" content="Pull every rope free in a calm, endless logic puzzle. One simple rule, fair clues, and no guessing needed. For Android.">
+<meta name="theme-color" content="#F3ECDF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10151C" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Rope Untangle: Logic Puzzle">
+<meta property="og:description" content="A calm logic puzzle. Pull every rope free.">
+<meta property="og:image" content="https://nuvyte.github.io/rope-untangle/img/og-1024x500.png">
+<meta property="og:url" content="https://nuvyte.github.io/rope-untangle/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero wrap">
+  <img class="app-icon" src="img/icon-192.png" alt="" width="104" height="104">
+  <h1>Rope Untangle</h1>
+  <p class="tagline">A calm logic puzzle.<br>Pull every rope free.</p>
+  <p class="sub">Every rope is tied to a peg. Tap one and it reels back home, but only if nothing is lying on top of it. Find the right order and clear the board.</p>
+  <a class="cta" href="https://play.google.com/store/apps/details?id=com.nuvyte.ropeuntangle">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.2 2.4c-.3.3-.4.8-.4 1.3v16.6c0 .5.1 1 .4 1.3l9.3-9.6zM14.9 13.4l2.7 2.8-11.2 6.4c-.5.3-1 .3-1.4.1zM18.8 8.5l2.7 1.6c.9.5.9 1.9 0 2.4l-2.7 1.6-3-3zM5 1.3c.4-.2.9-.2 1.4.1l11.2 6.4-2.7 2.8z"/></svg>
+    Get it on Google Play
+  </a>
+  <ul class="facts">
+    <li>Endless levels</li><li>Daily puzzle</li><li>No guessing</li><li>3 themes</li><li>Plays offline</li>
+  </ul>
+
+  <svg class="ropes" viewBox="0 0 720 150" aria-hidden="true">
+    <!-- teal: underneath -->
+    <path class="o" d="M40 120 H250 Q285 120 285 85 V60 Q285 28 320 28 H520"/>
+    <path stroke="#2A9D8F" stroke-width="12" d="M40 120 H250 Q285 120 285 85 V60 Q285 28 320 28 H520"/>
+    <path class="h" d="M40 117 H250 Q282 117 282 85 V60 Q282 25 320 25 H520"/>
+    <!-- orange: on top of teal -->
+    <path class="o" d="M40 60 H400 Q440 60 440 95 V100 Q440 125 470 125 H680"/>
+    <path stroke="#E07B39" stroke-width="12" d="M40 60 H400 Q440 60 440 95 V100 Q440 125 470 125 H680"/>
+    <path class="h" d="M40 57 H400 Q437 57 437 95 V100 Q437 122 470 122 H680"/>
+    <!-- purple: ends free at a clue -->
+    <path class="o" d="M680 40 H610 Q575 40 575 75 V82"/>
+    <path stroke="#8E5BC0" stroke-width="12" d="M680 40 H610 Q575 40 575 75 V82"/>
+    <path class="h" d="M680 37 H610 Q572 37 572 75 V82"/>
+    <rect class="peg" x="28" y="108" width="20" height="24" rx="4"/><rect class="peg" x="28" y="48" width="20" height="24" rx="4"/>
+    <rect class="peg" x="672" y="113" width="20" height="24" rx="4"/><rect class="peg" x="672" y="28" width="20" height="24" rx="4"/>
+    <circle class="peg" cx="520" cy="28" r="8"/>
+    <circle class="clue" cx="575" cy="98" r="15" stroke="#8E5BC0"/><text class="clue-n" x="575" y="99">0</text>
+    <!-- hidden crossing -->
+    <rect class="patch" x="270" y="45" width="30" height="30" rx="7"/><text x="285" y="60">?</text>
+  </svg>
+</header>
+
+<main>
+  <div class="shots" tabindex="0" aria-label="Screenshots">
+    <img src="img/shot-01-level10.webp" alt="A Super Hard level full of tangled ropes" width="540" height="960" loading="lazy">
+    <img src="img/shot-02-inspect.webp" alt="Holding a rope to inspect its crossings" width="540" height="960" loading="lazy">
+    <img src="img/shot-03-brutal.webp" alt="A Brutal board" width="540" height="960" loading="lazy">
+    <img src="img/shot-04-daily.webp" alt="The daily puzzle" width="540" height="960" loading="lazy">
+    <img src="img/shot-05-night.webp" alt="The Night theme" width="540" height="960" loading="lazy">
+    <img src="img/shot-06-win.webp" alt="A cleared board" width="540" height="960" loading="lazy">
+  </div>
+  <p class="hint">Swipe for more</p>
+
+  <section class="wrap">
+    <h2>One simple rule</h2>
+    <div class="steps">
+      <div class="step"><b>Tap a rope</b><p>It reels back to its peg, but only if no other rope is lying on top of it.</p></div>
+      <div class="step"><b>Read the clues</b><p>Patches hide some crossings. Numbers on rope ends tell you how many crossings that rope is on top at.</p></div>
+      <div class="step"><b>Find the order</b><p>Work out which rope comes free first, then the next, until the board is clear.</p></div>
+    </div>
+
+    <h2>Calm, fair, and endless</h2>
+    <div class="grid">
+      <div class="card"><h3><span class="end" style="--c:#2A9D8F"></span>Fair clues, never a guess</h3>
+        <p>Compare what you can see with what the clues say, and the answer is always there. Every level is checked by a solver.</p></div>
+      <div class="card"><h3><span class="end" style="--c:#8E5BC0"></span>Stress-free by design</h3>
+        <ul><li>Press and hold a rope to inspect its crossings</li><li>Tap a patch to pencil in your own notes</li><li>Pan and zoom freely; dragging never pulls a rope</li><li>Hints that explain why a rope is safe</li></ul></div>
+      <div class="card"><h3><span class="end" style="--c:#E07B39"></span>Boards that keep growing</h3>
+        <ul><li>From a gentle 7×7 to sprawling 20×20 tangles</li><li>Hard, Super Hard and rare Brutal boards</li><li>Tied ropes, locked pegs and no-clue boards</li><li>A fresh daily puzzle, with streaks to keep</li></ul></div>
+      <div class="card"><h3><span class="end" style="--c:#C9483F"></span>Made to feel good</h3>
+        <ul><li>Three themes: Paper, Night and Slate</li><li>Satisfying sounds and gentle haptics</li><li>Streak bonuses, stars and a lifetime score</li><li>Plays fully offline, no account needed</li></ul></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <nav><a href="privacy-policy.html">Privacy policy</a><span>Support: <a href="mailto:nuvyte00@gmail.com">nuvyte00@gmail.com</a></span></nav>
+  © 2026 Nuvyte
+</footer>
+</body>
+</html>

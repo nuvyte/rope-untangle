@@ -1,0 +1,75 @@
+/* Rope Untangle site: "Paper" by day, "Night" in dark mode, like the game's themes */
+:root{
+  --page:#F3ECDF;--card:#FBF7EF;--line:#E1D6C4;--ink:#4A3A2A;--muted:#8C7A66;--accent:#B8742F;--accent-edge:#8F5820;--on-accent:#fff;
+  --dot:rgba(74,58,42,.13);--peg:#6B4A2E;--patch:#EADFCB;--patch-edge:#B9A68A;--shade:rgba(60,40,20,.28);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --page:#10151C;--card:#18202A;--line:#253040;--ink:#E6EBF1;--muted:#97A3B5;--accent:#E2A64B;--accent-edge:#A8732A;--on-accent:#1B1206;
+  --dot:rgba(151,163,181,.13);--peg:#B58A3C;--patch:#2A3546;--patch-edge:#4A5A70;--shade:rgba(0,0,0,.45);
+  color-scheme:dark}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--ink);font:17px/1.6 'Fredoka','Trebuchet MS','Avenir Next',system-ui,sans-serif;
+  background-image:radial-gradient(var(--dot) 1.6px,transparent 1.8px);background-size:30px 30px}
+a{color:var(--accent)}
+img{max-width:100%;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+
+/* hero */
+.hero{text-align:center;padding-block:52px 10px}
+.app-icon{width:104px;height:104px;border-radius:24px;margin:0 auto 22px;box-shadow:0 12px 30px var(--shade)}
+.hero h1{margin:0;font-size:clamp(44px,10vw,76px);font-weight:700;line-height:1;color:var(--accent);letter-spacing:-.5px}
+.tagline{font-size:clamp(21px,4vw,28px);font-weight:500;line-height:1.3;margin:16px 0 12px}
+.sub{color:var(--muted);margin:0 auto 26px;max-width:40ch}
+.cta{display:inline-flex;align-items:center;gap:12px;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:600;font-size:20px;
+  padding:15px 30px;border-radius:999px;box-shadow:inset 0 -5px 0 var(--accent-edge),0 8px 20px var(--shade)}
+.cta:active{transform:translateY(3px);box-shadow:inset 0 -2px 0 var(--accent-edge)}
+.cta svg{width:22px;height:22px;flex:none}
+.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px;list-style:none;padding:0;margin:24px 0 0}
+.facts li{border:2px solid var(--line);background:var(--card);border-radius:999px;padding:4px 14px;font-size:15px;color:var(--muted)}
+
+/* decorative ropes, drawn like the game: outline, colour, highlight; pegs at the ends; a "?" patch at a hidden crossing */
+.ropes{display:block;width:min(720px,100%);height:auto;margin:30px auto 10px}
+.ropes path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ropes .o{stroke:var(--shade);stroke-width:17}
+.ropes .h{stroke:rgba(255,255,255,.35);stroke-width:3}
+.ropes .peg{fill:var(--peg)}
+.ropes .patch{fill:var(--patch);stroke:var(--patch-edge);stroke-width:2;stroke-dasharray:4 3}
+.ropes text{font:600 15px 'Fredoka',system-ui,sans-serif;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.ropes .clue{fill:#fff;stroke-width:3.5}
+.ropes .clue-n{fill:#3A2A1A;font-size:13px}
+
+/* screenshots */
+.shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 20px 22px;margin:0 auto;max-width:1240px;
+  scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.shots img{flex:none;width:clamp(200px,58vw,250px);aspect-ratio:9/16;height:auto;border-radius:18px;scroll-snap-align:center;box-shadow:0 8px 22px var(--shade)}
+.hint{text-align:center;color:var(--muted);font-size:14px;margin:0}
+
+/* sections */
+section h2{font-size:clamp(24px,4vw,30px);font-weight:600;text-align:center;margin:56px 0 24px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px;counter-reset:s}
+.step{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:18px 20px}
+.step b{display:block;font-size:19px;font-weight:600;margin-bottom:4px}
+.step b::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;margin-right:10px;border-radius:50%;
+  background:var(--accent);color:var(--on-accent);font-size:16px;vertical-align:2px}
+.step p,.card p{margin:0;color:var(--muted);font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:14px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:20px 20px 16px}
+.card h3{display:flex;align-items:center;gap:12px;margin:0 0 8px;font-size:19px;font-weight:600}
+.card ul{margin:0;padding-left:18px;color:var(--muted);font-size:16px}.card li{margin-bottom:3px}
+.end{--c:#8E5BC0;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--c);flex:none;box-shadow:0 2px 0 var(--shade)}
+
+/* footer */
+footer{margin-top:64px;border-top:2px dashed var(--line);padding-block:26px 40px;text-align:center;color:var(--muted);font-size:15px}
+footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;margin-bottom:8px}
+
+/* privacy page */
+.doc{max-width:720px;margin:0 auto;padding-block:28px 20px}
+.doc header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.doc header img{width:52px;height:52px;border-radius:12px}
+.doc header a{text-decoration:none;color:var(--accent);font-weight:600;font-size:20px}
+.doc h1{font-size:clamp(28px,5vw,36px);font-weight:600;line-height:1.2;margin:0 0 4px}
+.doc h2{font-size:21px;font-weight:600;margin:30px 0 6px;text-align:left}
+.doc p{margin:0 0 12px}
+.doc .date{color:var(--muted);margin-bottom:24px}
